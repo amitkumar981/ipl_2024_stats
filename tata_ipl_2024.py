@@ -31,8 +31,12 @@ fifties = []
 fours = []
 sixes = []
 
-# Extract data
+# Extract batsman names
 batsmans = driver.find_elements(By.CSS_SELECTOR, '.st-ply-name.ng-binding')
 for batsman in batsmans:
     bats.append(batsman.text)
 
+#extect total runs 
+run_class = driver.find_elements(By.XPATH, '//table/tbody/tr/td[3]')
+for run in run_class:
+    runs.append(run.text)
