@@ -80,3 +80,44 @@ for fo in t_fours:
 total_sixes = driver.find_elements(By.XPATH, '//table/tbody/tr/td[14]')
 for s in total_sixes:
     sixes.append(s.text)
+
+# Close the driver
+driver.quit()
+
+# Find the maximum length among all lists
+max_len = max(len(bats), len(runs), len(total_matches), len(HS), len(avg_score),
+              len(SR), len(hundreds), len(fifties), len(fours), len(sixes))
+
+# Pad all lists with None to ensure they are the same length
+def pad_list(lst, length):
+    return lst + [None] * (length - len(lst))
+
+bats = pad_list(bats, max_len)
+runs = pad_list(runs, max_len)
+total_matches = pad_list(total_matches, max_len)
+HS = pad_list(HS, max_len)
+avg_score = pad_list(avg_score, max_len)
+SR = pad_list(SR, max_len)
+hundreds = pad_list(hundreds, max_len)
+fifties = pad_list(fifties, max_len)
+fours = pad_list(fours, max_len)
+sixes = pad_list(sixes, max_len)
+
+# Convert data to a DataFrame
+data = {
+    'Batsman': bats,
+    'Runs': runs,
+    'Matches': total_matches,
+    'Highest Score': HS,
+    'Average': avg_score,
+    'Strike Rate': SR,
+    'Hundreds': hundreds,
+    'Fifties': fifties,
+    'Fours': fours,
+    'Sixes': sixes
+}
+df = pd.DataFrame(data)
+
+# Save DataFrame to CSV in VS Code
+df.to_csv('IPL_Stats_2024.csv', index=False)
+print("Data saved to IPL_Stats_2024.csv")
