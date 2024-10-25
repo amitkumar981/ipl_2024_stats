@@ -6,7 +6,7 @@ import pandas as pd
 import time
 
 # Website URL and WebDriver path
-website = 'https://www.iplt20.com/stats/2024'
+website = 'https://www.iplt20.com/stats/2022'
 path = r"C:\Users\redhu\Downloads\chromedriver-win64\chromedriver-win64\chromedriver.exe"
 s = Service(path)
 
@@ -16,7 +16,7 @@ driver.get(website)
 time.sleep(5)
 
 # Navigate to the batting statistics section
-driver.find_element(By.XPATH, '//*[@id="battingTAB"]/div/a').click()
+driver.find_element(By.XPATH,'//*[@id="battingTAB"]/div/a').click()
 time.sleep(2)
 
 # Initialize lists to store the data
@@ -119,5 +119,5 @@ data = {
 df = pd.DataFrame(data)
 
 # Save DataFrame to CSV in VS Code
-df.to_csv('IPL_Stats_2024.csv', index=False)
-print("Data saved to IPL_Stats_2024.csv")
+df.to_csv('IPL_Stats_2022.csv', index=False)
+print(df)
