@@ -45,3 +45,38 @@ for run in run_class:
 matches = driver.find_elements(By.XPATH, '//table/tbody/tr/td[4]')
 for match in matches:
     total_matches.append(match.text)
+
+# Extrect highest score 
+highest_score = driver.find_elements(By.XPATH, '//table/tbody/tr/td[7]')
+for hs in highest_score:
+    HS.append(hs.text)
+
+#extract highest score
+average_score = driver.find_elements(By.XPATH, '//table/tbody/tr/td[8]')
+for avg in average_score:
+    avg_score.append(avg.text)
+
+#Extract strike rate 
+strike_rate = driver.find_elements(By.XPATH, '//table/tbody/tr/td[10]')
+for sr in strike_rate:
+    SR.append(sr.text)
+
+#extrect 100s 
+hu = driver.find_elements(By.XPATH, '//table/tbody/tr/td[11]')
+for hd in hu:
+    hundreds.append(hd.text)
+
+#extract 50s
+t_fifties = driver.find_elements(By.XPATH, '//table/tbody/tr/td[12]')
+for f in t_fifties:
+    fifties.append(f.text)
+
+#extract 4s
+t_fours = driver.find_elements(By.XPATH, '//table/tbody/tr/td[13]')
+for fo in t_fours:
+    fours.append(fo.text)
+
+#extract 6s
+total_sixes = driver.find_elements(By.XPATH, '//table/tbody/tr/td[14]')
+for s in total_sixes:
+    sixes.append(s.text)
