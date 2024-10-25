@@ -36,7 +36,12 @@ batsmans = driver.find_elements(By.CSS_SELECTOR, '.st-ply-name.ng-binding')
 for batsman in batsmans:
     bats.append(batsman.text)
 
-#extect total runs 
+#extrect total runs 
 run_class = driver.find_elements(By.XPATH, '//table/tbody/tr/td[3]')
 for run in run_class:
     runs.append(run.text)
+
+#Extract total matches played 
+matches = driver.find_elements(By.XPATH, '//table/tbody/tr/td[4]')
+for match in matches:
+    total_matches.append(match.text)
