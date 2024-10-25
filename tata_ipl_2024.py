@@ -15,3 +15,24 @@ driver = webdriver.Chrome(service=s)
 driver.get(website)
 time.sleep(5)
 
+# Navigate to the batting statistics section
+driver.find_element(By.XPATH, '//*[@id="battingTAB"]/div/a').click()
+time.sleep(2)
+
+# Initialize lists to store the data
+bats = []
+runs = []
+total_matches = []
+HS = []
+avg_score = []
+SR = []
+hundreds = []
+fifties = []
+fours = []
+sixes = []
+
+# Extract data
+batsmans = driver.find_elements(By.CSS_SELECTOR, '.st-ply-name.ng-binding')
+for batsman in batsmans:
+    bats.append(batsman.text)
+
